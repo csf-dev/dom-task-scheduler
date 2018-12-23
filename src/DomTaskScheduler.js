@@ -7,43 +7,45 @@ import type { DomTask } from './SchedulesDomTasks';
 
 export class DomTaskScheduler implements SchedulesDomTasks {
     #domReadyFunction : DomReadyFunction;
-    #currentQueue : TaskQueue;
+    #queues : Array<TaskQueue>;
     #domReadyPromise : ?Promise<void>;
 
-    get hasTasks() : bool { return this.#currentQueue.tasks.length > 0; }
+    get hasTasks() : bool { return this.#queues.length > 0; }
     get tasksComplete() : Promise<void> {
-        if(!this.#domReadyPromise) { return Promise.resolve(); }
-        return this.#currentQueue.complete;
+        if(!this.hasTasks) { return Promise.resolve(); }
+        const allDone = this.#queues.map(queue => queue.complete);
+        return Promise.all(allDone).then(() => {});
     };
 
     addTask(task : DomTask) : void {
-        if(!this.#domReadyPromise) {
-            const domReadyFunc = this.#domReadyFunction;
-            this.#domReadyPromise = domReadyFunc()
+        if(!this.hasTasks || !this.#domReadyFunction) {
+            const promiseFactory = this.#domReadyFunction;
+            this.#domReadyPromise = promiseFactory()
                 .then(() => this.runAllNow());
+            this.#queues.push(new TaskQueue());
         }
 
-        this.#currentQueue.add(task);
+        const lastQueue = this.#queues[this.#queues.length - 1];
+        lastQueue.add(task);
     }
     async runAllNow() : Promise<void> {
-        const queue = this.#currentQueue;
-        await queue.runAll();
+        const queues = this.#queues.slice();
 
         this.#domReadyPromise = null;
-        this.#currentQueue = new TaskQueue();
+
+        const results = queues.map(queue => queue.runAll());
+        await Promise.all(results);
+
+        this.#queues.splice(0, queues.length);
     }
 
     constructor(domReadyFunction : DomReadyFunction) {
         this.#domReadyFunction = domReadyFunction;
-        this.#currentQueue = new TaskQueue();
+        this.#queues = [];
     }
 }
 
-export function createDomTaskScheduler() : SchedulesDomTasks {
+export default function getDomTaskScheduler() : SchedulesDomTasks {
     const readyFunction = getBestReadyFunction();
     return new DomTaskScheduler(readyFunction);
 }
-
-const singletonScheduler = createDomTaskScheduler();
-
-export default function getDomTaskScheduler() { return singletonScheduler; }
