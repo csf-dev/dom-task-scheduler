@@ -2,10 +2,11 @@
   "name": "dom-task-scheduler",
   "version": "0.1.0",
   "description": "Schedules async tasks to occur as once the browser is ready to make changes to the DOM",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npx karma start",
-    "tests": "npx karma start --no-single-run"
+    "tests": "npx karma start --no-single-run",
+    "prepack": "node tools/prepack.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/cli": "^7.2.0",
     "babel-loader": "^8.0.4",
     "flow-bin": "^0.82.0",
     "jasmine": "^3.2.0",
