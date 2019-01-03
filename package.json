@@ -46,9 +46,19 @@
   "browserslist": [
     "> 0.2%",
     "last 2 versions",
-    "not ie 8",
-    "node 10",
-    "node 8"
+    "ChromeAndroid >= 55",
+    "Chrome >= 55",
+    "Firefox >= 50",
+    "FirefoxAndroid >= 50",
+    "Edge >= 12",
+    "IE >= 9",
+    "Opera >= 42",
+    "Safari >= 10",
+    "Android >= 4.4",
+    "iOS >= 10",
+    "Node 6",
+    "Node 8",
+    "Node 10"
   ],
   "author": "Craig Fowler",
   "license": "MIT",
