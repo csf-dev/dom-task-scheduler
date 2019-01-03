@@ -17,7 +17,7 @@ import type { DomReadyFunction } from '../DomReadyFunction';
  */
 
 export default function tryGetMutationObserverReadyFunction() : ?DomReadyFunction {
-    if(!window || !window.document || !window['MutationObserver']) return null;
+    if(typeof window === 'undefined' || !window.document || !window['MutationObserver']) return null;
 
     return function() {
         const mutableElement = document.createElement('div');
