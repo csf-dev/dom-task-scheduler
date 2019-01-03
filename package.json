@@ -35,12 +35,9 @@
     "webpack": "^4.20.2",
     "flow-typed": "^2.5.1",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "window": "^4.2.5",
-    "@babel/polyfill": "^7.0.0",
-    "core-js": "^2.6.0"
+    "window": "^4.2.5"
   },
-  "peerDependencies": {
-    "core-js": "^2.6.0",
+  "dependencies": {
     "@babel/polyfill": "^7.0.0"
   },
   "browserslist": [
