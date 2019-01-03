@@ -13,7 +13,7 @@ import type { DomReadyFunction } from '../DomReadyFunction';
  */
 
 export default function tryGetReadyStateChangeReadyFunction() : ?DomReadyFunction {
-    if(!document || !document.documentElement || !('onreadystatechange' in document.createElement('script')))
+    if(typeof document === 'undefined' || !document.documentElement || !('onreadystatechange' in document.createElement('script')))
         return null;
 
     return function() {
