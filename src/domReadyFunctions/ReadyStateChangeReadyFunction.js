@@ -1,10 +1,11 @@
 //@flow
 import type { DomReadyFunction } from '../DomReadyFunction';
 
-/* This DOM-ready function should support Internet Explorer versions 6
- * through 10. It uses an onreadystatechange JavaScript event upon an HTML
- * <script> element to detect that an HTML manipulation has taken
- * place.
+/* The fundamentals of this DOM-ready function should support Internet
+ * Explorer versions 6 through 10.  *NOTE* This module does not
+ * support IE versions below 9 though! It uses an onreadystatechange
+ * JavaScript event on an HTML <script> element to detect that an HTML
+ * manipulation has taken place.
  *
  * It functions by appending the script element to the document element,
  * listening for the onreadystatechange event and then (when that event
