@@ -24,3 +24,6 @@ at next opportunity.
 You may also use the promise exposed by this service: `tasksComplete`, which resolves once all pending tasks
 has completed.  This may be used to schedule or initiate other operations which should occur after the
 rendering has completed.
+
+## Installation
+Install this module from NPM - the package name is **[dom-task-scheduler](https://www.npmjs.com/package/dom-task-scheduler)**.
