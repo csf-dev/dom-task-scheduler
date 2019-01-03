@@ -39,7 +39,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "core-js": "^2.6.1"
+    "core-js": "^2.6.1",
+    "regenerator-runtime": "0.12.0"
   },
   "browserslist": [
     "> 0.2%",
