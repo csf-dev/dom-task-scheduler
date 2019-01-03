@@ -1,6 +1,6 @@
 {
   "name": "dom-task-scheduler",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Schedules async tasks to occur as once the browser is ready to make changes to the DOM",
   "main": "dist/index.js",
   "scripts": {
