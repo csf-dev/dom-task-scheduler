@@ -2,7 +2,7 @@ const fileMatcher = require('glob');
 const fs = require('fs');
 
 runBabel()
-    .then(getFilenames('src/*.js', { ignore: '**/*.spec.js' }))
+    .then(getFilenames('src/**/*.js', { ignore: '**/*.spec.js' }))
     .then(copySourceFiles);
 
 function runBabel() {
