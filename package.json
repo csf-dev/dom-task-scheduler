@@ -1,0 +1,66 @@
+{
+  "name": "dom-task-scheduler",
+  "version": "0.1.1",
+  "description": "Schedules async tasks to occur as once the browser is ready to make changes to the DOM",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npx karma start",
+    "tests": "npx karma start --no-single-run",
+    "prepack": "node tools/prepack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csf-dev/dom-task-scheduler.git"
+  },
+  "keywords": [
+    "dom",
+    "js",
+    "promise",
+    "task",
+    "schedule"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/cli": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "flow-bin": "^0.82.0",
+    "jasmine": "^3.2.0",
+    "karma": "^3.0.0",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-jasmine": "^1.1.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-webpack": "^3.0.5",
+    "webpack": "^4.20.2",
+    "flow-typed": "^2.5.1",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "window": "^4.2.5"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "last 2 versions",
+    "ChromeAndroid >= 55",
+    "Chrome >= 55",
+    "Firefox >= 50",
+    "FirefoxAndroid >= 50",
+    "Edge >= 12",
+    "IE >= 9",
+    "Opera >= 42",
+    "Safari >= 10",
+    "Android >= 4.4",
+    "iOS >= 10",
+    "Node 6",
+    "Node 8",
+    "Node 10"
+  ],
+  "author": "Craig Fowler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csf-dev/dom-task-scheduler/issues"
+  },
+  "homepage": "https://github.com/csf-dev/dom-task-scheduler#readme"
+}
