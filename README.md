@@ -1,3 +1,9 @@
+As of February 2026, this project is _archived and will not receive further updates_.
+The `MutationObserver` technique works on all browsers which any web developer would reasonably support.
+We no longer need to pick between them.
+
+---
+
 # DOM task scheduler
 This small module provides a mechanism by which to schedule tasks (functions) asynchronously on the basis
 that they should execute 'as soon as possible, once the browser is ready to render changes to the DOM'.
